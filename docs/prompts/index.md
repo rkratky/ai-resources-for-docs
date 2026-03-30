@@ -2,7 +2,7 @@
 
 This section contains prompts that you can feed into your LLM of choice to get help with particular tasks.
 
-Note that the prompts provided here have not been battle-tested or refined so your mileage may vary.
+Note that the prompts provided here have not been extensively battle-tested or refined so your mileage may vary.
 
 
 ```{toctree}
@@ -13,6 +13,7 @@ cleanup-spellcheck
 doc-planning
 linkcheck-optimization
 premade-metaprompt
+semantic-markup-conversion-prompt
 ```
 
 
@@ -23,8 +24,4 @@ After a successful discussion with an LLM where you are happy with the output, p
 > "Produce a prompt that would've resulted in the same outcome without the need for my corrections and extra suggestions"
 
 You can save this as a file whose contents can be copy/pasted into an LLM later (either by yourself or someone else).
-
-
-
-
    
