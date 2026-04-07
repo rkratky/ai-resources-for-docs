@@ -1,7 +1,7 @@
 (upgrade-the-starter-pack)=
 # Upgrade the Starter Pack
 
-This is a tested, exhaustive prompt for upgrading the [Docs Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack) installation in a repo that does _not_ employ non-standard docs-build logic (e.g. when the docs build is wired into a monorepo's global build system). In other words, running `make html` and co. must work from the `docs/` directory.
+This is a tested, exhaustive prompt for upgrading the [Docs Starter Pack](https://github.com/canonical/sphinx-docs-starter-pack) installation in a repo that does _not_ employ non-standard docs-build logic (e.g. when the docs build is wired into a global build system of a monorepo). In other words, running `make html` and co. must work from the `docs/` directory.
 
 **General notes:**
 
