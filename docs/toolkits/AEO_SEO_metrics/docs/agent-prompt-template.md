@@ -168,6 +168,7 @@ Keep the response concise and action-oriented - I need to present this in a 10-m
 ## Prompt Customization Tips
 
 ### Add Context About Your Team
+
 ```
 Additional context:
 - Team size: 2 technical writers, 3 developers contributing docs
@@ -177,6 +178,7 @@ Additional context:
 ```
 
 ### Add Specific Constraints
+
 ```
 Constraints:
 - Cannot restructure URLs (would break existing links)
@@ -186,6 +188,7 @@ Constraints:
 ```
 
 ### Add Business Context
+
 ```
 Business context:
 - Documentation supports Ubuntu Server 22.04 LTS and 24.04 LTS
@@ -195,6 +198,7 @@ Business context:
 ```
 
 ### Request Specific Outputs
+
 ```
 Output format requested:
 1. Executive summary (max 300 words)
@@ -208,6 +212,7 @@ Output format requested:
 ## Integration with Tools
 
 ### After Running Analyzer
+
 ```bash
 # Run audit
 python tools/seo_aeo_analyzer.py --output audit.csv
@@ -217,6 +222,7 @@ python tools/seo_aeo_analyzer.py --output audit.csv
 ```
 
 ### After Running Comparison
+
 ```bash
 # Compare audits
 python tools/compare_audits.py baseline.csv current.csv --output report.md
@@ -228,6 +234,7 @@ sections of prompt template]"
 ```
 
 ### For Continuous Monitoring
+
 ```bash
 # Set up weekly analysis
 # In crontab or CI/CD:
@@ -240,6 +247,7 @@ sections of prompt template]"
 ## Expected AI Agent Capabilities
 
 For best results, use an AI agent that can:
+
 - Read and parse CSV files
 - Perform statistical analysis
 - Compare datasets
@@ -248,6 +256,7 @@ For best results, use an AI agent that can:
 - Suggest specific code/content changes
 
 Recommended models:
+
 - Claude 3.5 Sonnet or newer (excellent for technical analysis)
 - GPT-4 or GPT-4 Turbo (good general analysis)
 - Any model with large context window (100k+ tokens ideal)
