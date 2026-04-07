@@ -20,6 +20,7 @@ I need you to survey the documentation and convert all links to use semantic mar
 Convert the following link types:
 
 #### Manpages
+
 - **From**: `[text](https://manpages.ubuntu.com/manpages/<release>/en/man<N>/<name>.<N>.html)`
 - **From**: `[text](https://manpages.debian.org/...)`
 - **From**: `[text](https://man7.org/...)`
@@ -28,6 +29,7 @@ Convert the following link types:
 - **Note**: Only convert specific manpage links. Do NOT convert generic links to manpages.ubuntu.com (without a specific page)
 
 #### Launchpad Source Packages
+
 - **From**: `[text](https://launchpad.net/ubuntu/+source/<package>)`
 - **To**: `{lpsrc}\`package\`` or `{lpsrc}\`description <package>\``
 - **Example**: `{lpsrc}\`bash\`` or `{lpsrc}\`DPDK Launchpad Area <dpdk>\``
@@ -35,6 +37,7 @@ Convert the following link types:
 - **Note**: Do NOT convert PPA URLs (these are specific package archives)
 
 #### Launchpad Bugs
+
 - **From**: `[text](https://bugs.launchpad.net/ubuntu/+source/<package>/+bug/<number>)`
 - **From**: `[text](https://bugs.launchpad.net/bugs/<number>)`
 - **To**: `{lpbug}\`number\`` or `{lpbug}\`description <number>\``
@@ -45,6 +48,7 @@ Convert the following link types:
 ### Configuration Required in `docs/conf.py`
 
 If these are not already present, add to the `extensions` list:
+
 ```python
 extensions = [
     # ... other extensions ...
@@ -53,6 +57,7 @@ extensions = [
 ```
 
 Add or update the `extlinks` configuration:
+
 ```python
 extlinks = {
     "lpsrc": ("https://launchpad.net/ubuntu/+source/%s", "%s"),
@@ -61,6 +66,7 @@ extlinks = {
 ```
 
 For manpages, ensure this is configured (adjust `stable_distro` as needed):
+
 ```python
 stable_distro = "plucky"  # or "noble", "jammy", etc.
 
@@ -105,12 +111,14 @@ grep -r "bugs\.launchpad\.net" docs/**/*.md
 ### Testing
 
 After making changes:
+
 ```bash
 cd docs
 make linkcheck
 ```
 
 Verify:
+
 - No broken links for the semantic markup
 - No warnings about missing roles
 - Links resolve to correct destinations
@@ -129,6 +137,7 @@ Verify:
 ## Additional Notes
 
 This conversion improves documentation by:
+
 - Making links shorter and more readable in source
 - Allowing centralized URL pattern changes
 - Providing consistent formatting across the documentation
