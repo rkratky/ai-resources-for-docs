@@ -68,16 +68,19 @@ docs/README
 ## Getting Started
 
 ### Option 1: Quick Start (Easiest)
+
 ```bash
 ./tools/run-audit.sh
 ```
 
 ### Option 2: Manual Run
+
 ```bash
 python tools/seo_aeo_analyzer.py --output audits/audit-$(date +%Y-%m-%d).csv
 ```
 
 ### Option 3: AI-Assisted Analysis
+
 1. Run the analyzer: `python tools/seo_aeo_analyzer.py`
 2. Use the prompt from `agent-prompt-template.md` with your AI agent
 3. Get detailed insights and recommendations
@@ -85,6 +88,7 @@ python tools/seo_aeo_analyzer.py --output audits/audit-$(date +%Y-%m-%d).csv
 ## What Gets Analyzed
 
 ### SEO Metrics
+
 - ✅ Title tags & meta descriptions
 - ✅ Content depth (word count)
 - ✅ Heading structure (H1-H6)
@@ -94,6 +98,7 @@ python tools/seo_aeo_analyzer.py --output audits/audit-$(date +%Y-%m-%d).csv
 - ✅ Version information
 
 ### AEO Metrics  
+
 - ✅ Direct answer quality
 - ✅ Content structure (lists, code blocks)
 - ✅ Semantic markup
@@ -127,6 +132,7 @@ audits/
 ## Common Workflows
 
 ### First-Time Setup
+
 ```bash
 # 1. Run baseline audit
 python tools/seo_aeo_analyzer.py --output audits/baseline.csv
@@ -139,6 +145,7 @@ cat audits/baseline.csv | less
 ```
 
 ### Regular Monitoring
+
 ```bash
 # Weekly/Monthly
 ./tools/run-audit.sh
@@ -149,6 +156,7 @@ python tools/compare_audits.py audits/baseline.csv audits/audit-$(date +%Y-%m-%d
 ```
 
 ### Before/After Testing
+
 ```bash
 # Before changes
 python tools/seo_aeo_analyzer.py --output audits/before.csv
@@ -177,21 +185,25 @@ python tools/compare_audits.py audits/before.csv audits/after.csv --output audit
 Based on the baseline audit:
 
 **Current State:**
+
 - Overall: 4.03/5.0 (81%)
 - SEO: 4.05/5.0
 - AEO: 4.01/5.0
 
 **After Phase 1 (30 days):**
+
 - Overall: ~4.15/5.0 (+3%)
 - Internal links: 1.14 → 3.5
 - Multiple H1s: Fixed
 
 **After Phase 2 (60 days):**
+
 - Overall: ~4.25/5.0 (+5%)
 - Prerequisites: 100% of how-tos
 - Version info: 80%+ coverage
 
 **After Phase 3 (90 days):**
+
 - Overall: ~4.35/5.0 (+8%)
 - Content depth: <15% under 300 words
 - All critical issues resolved
@@ -213,6 +225,7 @@ All tools are easily customizable:
 
 ### Adjust Scoring Thresholds
 Edit `seo_aeo_analyzer.py`:
+
 ```python
 # Make word count requirements stricter/looser
 if word_count >= 1000:  # was 800
@@ -220,12 +233,14 @@ if word_count >= 1000:  # was 800
 ```
 
 ### Add New Metrics
+
 1. Add scoring logic to `analyze_page()`
 2. Update `PageMetrics` dataclass
 3. Add to CSV output
 
 ### Change Target Directories
 Edit `find_content_files()`:
+
 ```python
 target_dirs = ["tutorial", "how-to", "explanation", "reference", "guides"]
 ```
@@ -281,6 +296,7 @@ target_dirs = ["tutorial", "how-to", "explanation", "reference", "guides"]
 ## Best Practices
 
 ✅ **DO:**
+
 - Run audits regularly (weekly/monthly)
 - Keep baseline for comparison
 - Track trends in AUDIT_HISTORY.md
@@ -289,6 +305,7 @@ target_dirs = ["tutorial", "how-to", "explanation", "reference", "guides"]
 - Automate with CI/CD
 
 ❌ **DON'T:**
+
 - Obsess over perfect scores
 - Change everything at once
 - Ignore context (some pages are naturally shorter)

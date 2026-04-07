@@ -3,21 +3,25 @@
 ## Quick Commands
 
 ### Run your first audit
+
 ```bash
 python tools/seo_aeo_analyzer.py
 ```
 
 ### Run audit with custom output
+
 ```bash
 python tools/seo_aeo_analyzer.py --output audits/audit-2025-12-10.csv
 ```
 
 ### Compare two audits
+
 ```bash
 python tools/compare_audits.py audits/baseline.csv audits/audit-2025-12-17.csv
 ```
 
 ### Generate comparison report
+
 ```bash
 python tools/compare_audits.py \
   audits/baseline.csv \
@@ -26,6 +30,7 @@ python tools/compare_audits.py \
 ```
 
 ### Quick start script
+
 ```bash
 chmod +x tools/run-audit.sh
 ./tools/run-audit.sh
@@ -45,15 +50,18 @@ chmod +x tools/run-audit.sh
 
 ### Issue: No Internal Links (Score: 1)
 **Fix:** Add 3-5 cross-references
+
 ```markdown
 See {ref}`related-guide` for more details.
 Check out the {term}`glossary-term` definition.
 ```
+
 **Time:** 5-10 minutes per page
 **Impact:** High
 
 ### Issue: Short Content (Score: 1-2)
 **Fix:** Expand to 300+ words
+
 - Add "Why this matters" section
 - Include troubleshooting
 - Add examples
@@ -62,6 +70,7 @@ Check out the {term}`glossary-term` definition.
 
 ### Issue: No Prerequisites (Score: 2)
 **Fix:** Add prerequisites section
+
 ```markdown
 ## Prerequisites
 
@@ -69,25 +78,30 @@ Check out the {term}`glossary-term` definition.
 - Root or sudo access
 - Package X installed
 ```
+
 **Time:** 5 minutes per page
 **Impact:** High for how-tos
 
 ### Issue: No Version Info (Score: 2)
 **Fix:** Add version callout
+
 ```markdown
 :::{note}
 This guide applies to Ubuntu 22.04 LTS and later.
 :::
 ```
+
 **Time:** 2 minutes per page
 **Impact:** Medium
 
 ### Issue: Multiple H1s (Score: -1)
 **Fix:** Convert secondary H1s to H2s
+
 ```markdown
 # Main Title        ← Only H1
 ## Section Title    ← H2, not H1
 ```
+
 **Time:** 1 minute per page
 **Impact:** Medium
 
@@ -155,12 +169,14 @@ ubuntu-server-documentation/
 ## Automation Options
 
 ### Cron (Linux/Mac)
+
 ```bash
 # Run every Monday at 9 AM
 0 9 * * 1 cd ~/ubuntu-server-documentation && python tools/seo_aeo_analyzer.py --output audits/audit-$(date +\%Y-\%m-\%d).csv
 ```
 
 ### Task Scheduler (Windows)
+
 ```powershell
 # Create scheduled task
 schtasks /create /tn "Doc Audit" /tr "python C:\path\to\tools\seo_aeo_analyzer.py" /sc weekly /d MON /st 09:00
@@ -172,16 +188,19 @@ See `.github/workflows/seo-aeo-audit.yml`
 ## Getting Help
 
 ### Check tool status
+
 ```bash
 python tools/seo_aeo_analyzer.py --help
 ```
 
 ### Verify Python version (requires 3.7+)
+
 ```bash
 python3 --version
 ```
 
 ### Test on small set
+
 ```bash
 # Temporarily modify to analyze just one directory
 python tools/seo_aeo_analyzer.py --docs-dir docs/tutorial
@@ -190,6 +209,7 @@ python tools/seo_aeo_analyzer.py --docs-dir docs/tutorial
 ## Best Practices
 
 ✅ **DO:**
+
 - Run audits regularly (weekly or monthly)
 - Keep baseline for comparison
 - Focus on high-impact, low-effort fixes first
@@ -197,6 +217,7 @@ python tools/seo_aeo_analyzer.py --docs-dir docs/tutorial
 - Automate where possible
 
 ❌ **DON'T:**
+
 - Obsess over perfect 5.0 scores
 - Change everything at once
 - Ignore context (some pages are naturally shorter)
@@ -206,6 +227,7 @@ python tools/seo_aeo_analyzer.py --docs-dir docs/tutorial
 ## Success Metrics
 
 Track these over time:
+
 - Average overall score (target: 4.3+)
 - Pages with internal links (target: 90%+)
 - Pages under 300 words (target: <10%)

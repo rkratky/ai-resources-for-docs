@@ -8,12 +8,14 @@ Automated tools for analyzing and tracking documentation quality metrics for sea
 Main analysis tool that scans documentation files and scores them against SEO and AEO metrics.
 
 **Features:**
+
 - Analyzes all Markdown files in tutorial/, how-to/, explanation/, and reference/ directories
 - Scores 14 different metrics on a 1-5 scale
 - Generates detailed CSV output with per-page scores
 - Provides summary statistics and identifies critical issues
 
 **Usage:**
+
 ```bash
 # Basic usage (analyzes docs/ directory)
 python tools/seo_aeo_analyzer.py
@@ -26,6 +28,7 @@ python tools/seo_aeo_analyzer.py --quiet
 ```
 
 **Output:**
+
 - CSV file with detailed metrics per page
 - Console summary with averages, top/bottom performers, and critical issues
 
@@ -33,12 +36,14 @@ python tools/seo_aeo_analyzer.py --quiet
 Comparison tool for tracking changes between two audit runs over time.
 
 **Features:**
+
 - Compares two audit CSV files
 - Identifies improvements and regressions
 - Tracks metric-by-metric changes
 - Generates markdown comparison report
 
 **Usage:**
+
 ```bash
 # Compare two audits and print to console
 python tools/compare_audits.py baseline.csv current.csv
@@ -48,6 +53,7 @@ python tools/compare_audits.py audit-2025-12-10.csv audit-2025-12-17.csv --outpu
 ```
 
 **Output:**
+
 - Markdown report showing:
   - Overall score changes
   - Top improvements and regressions
@@ -140,6 +146,7 @@ python tools/compare_audits.py audit-2025-12-10.csv audit-2025-12-17.csv --outpu
 ## Workflow for Periodic Audits
 
 ### Initial Baseline Audit
+
 ```bash
 # Run initial audit
 cd /path/to/ubuntu-server-documentation
@@ -151,6 +158,7 @@ cp seo-aeo-audit.csv audits/baseline-2025-12-10.csv
 ```
 
 ### Regular Re-audits (Weekly/Monthly)
+
 ```bash
 # Run new audit
 python tools/seo_aeo_analyzer.py --output audits/audit-$(date +%Y-%m-%d).csv
@@ -174,6 +182,7 @@ Add to cron or CI/CD pipeline:
 ```
 
 **GitHub Actions Example:**
+
 ```yaml
 name: Weekly SEO/AEO Audit
 on:
@@ -250,15 +259,18 @@ def find_content_files(self) -> List[Path]:
 ## Troubleshooting
 
 ### "No files found"
+
 - Check that `--docs-dir` points to the correct documentation directory
 - Ensure target directories (tutorial/, how-to/, etc.) exist
 
 ### "Error analyzing file"
+
 - Check file encoding (should be UTF-8)
 - Verify Markdown syntax is valid
 - Check for unusual characters in frontmatter
 
 ### "Module not found"
+
 - Ensure you're running Python 3.7+
 - All required modules are in Python standard library (no pip install needed)
 
